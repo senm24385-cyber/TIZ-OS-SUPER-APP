@@ -1,0 +1,8 @@
+:root { --main-cyan: #00E5FF; --bg: #050505; }
+body { background: var(--bg); color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+.avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--main-cyan); display: flex; align-items: center; justify-content: center; font-size: 60px; box-shadow: 0 0 20px var(--main-cyan); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.chat-box { width: 90%; max-width: 400px; height: 250px; background: rgba(255,255,255,0.05); margin-top: 20px; border-radius: 15px; padding: 15px; overflow-y: auto; border: 1px solid #333; }
+.controls { margin-top: 20px; display: flex; gap: 10px; width: 90%; max-width: 400px; }
+input { flex: 1; background: #111; border: 1px solid var(--main-cyan); color: white; padding: 12px; border-radius: 25px; outline: none; }
+button { background: var(--main-cyan); border: none; padding: 12px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; }
