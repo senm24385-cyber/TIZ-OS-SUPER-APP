@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIZ OS: Mugallym Merdan</title>
+    <style>
+        :root { --cyan: #00E5FF; --purple: #7000FF; --bg: #050505; }
+        body { background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        
+        /* Mugallymyň Avatary */
+        .avatar-container { position: relative; width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--cyan); display: flex; align-items: center; justify-content: center; font-size: 80px; box-shadow: 0 0 30px var(--cyan); animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        
+        .chat-container { width: 90%; max-width: 450px; height: 300px; background: rgba(255,255,255,0.05); margin-top: 30px; border-radius: 20px; border: 1px solid #333; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 10px 15px; border-radius: 15px; max-width: 80%; line-height: 1.4; }
+        .ai-msg { background: var(--purple); align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-msg { background: var(--cyan); color: black; align-self: flex-end; border-bottom-right-radius: 2px; }
+
+        .input-area { width: 90%; max-width: 450px; display: flex; gap: 10px; margin-top: 20px; }
+        input { flex: 1; background: #111; border: 2px solid #333; border-radius: 30px; padding: 15px; color: white; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--cyan); }
+        .btn { background: var(--cyan); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="avatar-container">👨‍🏫</div>
+    <h2 style="color: var(--cyan); letter-spacing: 2px;">MUGALLYM MERDAN</h2>
+    <p style="opacity: 0.7;">Rus dili AI mugallymyňyz</p>
+
+    <div id="chatBox" class="chat-container">
+        <div class="msg ai-msg">Привет! Я твой учитель русского языка. Давай начнем урок! (Salam! Men seniň rus dili mugallymyň. Geliň, sapaga başlalyň!)</div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Rusça bir zat ýazyň...">
+        <button class="btn" onclick="startVoice()">🎤</button>
+        <button class="btn" onclick="sendToAI()">➡️</button>
+    </div>
+
+    <script>
+        function sendToAI() {
+            const input = document.getElementById('userInput');
+            const chatBox = document.getElementById('chatBox');
+            if (input.value.trim() !== "") {
+                // Ulanjy habary
+                const userDiv = document.createElement('div');
+                userDiv.className = 'msg user-msg';
+                userDiv.innerText = input.value;
+                chatBox.appendChild(userDiv);
+                
+                // Mugallym jogap berýär (Häzirçe awtomat)
+                setTimeout(() => {
+                    const aiDiv = document.createElement('div');
+                    aiDiv.className = 'msg ai-msg';
+                    aiDiv.innerText = "Отлично! Ты хорошо справляешься. (Örän gowy! Sen gowy başarýarsyň.)";
+                    chatBox.appendChild(aiDiv);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+
+                input.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        function startVoice() {
+            alert("Merdan Master, Rusça sesli tanamak (Voice Recognition) ulgamy işjeňleşdirilýär...");
+        }
+    </script>
+</body>
+</html>
 <h1>Salam</h1>
